@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* ensure anchors and hero aren’t overlapped by the fixed navbar */
+html {
+  scroll-padding-top: 70px;
+}
+/* Hero Section with full-width background + overlay */
+.hero-section {
+  position: relative;
+  background: url('../public/hero-bg.avif') no-repeat center center;
+  background-size: cover;
+  min-height: 80vh;            /* Make it nice and tall */
+  display: flex;
+  align-items: center;         /* Center content vertically */
+}
+
+/* Dark overlay so text stands out */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* Ensure your container sits above the overlay */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
